@@ -141,6 +141,7 @@ function to($url){
     header("location:$url");
 }
 $Bottom=new db('bottom');
+$Mem=new db('mem');
 
 
 ?>
