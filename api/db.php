@@ -140,8 +140,7 @@ function dd($array)
 function to($url){
     header("location:$url");
 }
-
-
+$Bottom=new db('bottom');
 
 
 ?>
