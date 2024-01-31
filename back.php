@@ -5,9 +5,9 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
     <title>┌精品電子商務網站」</title>
     <link href="./css/css.css" rel="stylesheet" type="text/css">
+    <script src="./js/jquery-3.4.1.min.js"></script>
     <script src="./js/js.js"></script>
 </head>
 
@@ -28,7 +28,7 @@
                 <a href="?do=mem">會員管理</a>
                 <a href="?do=bot">頁尾版權管理</a>
                 <a href="?do=news">最新消息管理</a>
-                
+
                 <a href="./api/logout.php" style="color:#f00;">登出</a>
             </div>
         </div>
@@ -41,14 +41,11 @@
             } else {
                 include "./back/admin.php";
             }
-
             ?>
         </div>
         <div id="bottom" style="line-height:70px; color:#FFF; background:url(icon/bot.png);" class="ct">
-        <?= $Bottom->find(1)['bottom'];?></div>
+            <?= $Bottom->find(1)['bottom']; ?></div>
     </div>
-
 </body>
-<script src="./js/jquery-3.4.1.min.js"></script>
 
 </html>
