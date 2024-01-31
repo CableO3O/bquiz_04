@@ -71,9 +71,19 @@
             location.reload();
         })
     }
+    function edit(dom,id) {
+        let name=prompt("請輸入你要修改的分類名稱:",`${$(dom).parent().prev().text()}`)
+        if (name!=null) {
+            $.post("./api/save_type.php",{name,id},()=>{
+                $(dom).parent().prev().text(name);
+            })
+        }
+     }
 </script>
 <h2 class="ct">商品管理</h2>
-<div class="ct"><button>新增商品</button></div>
+<div class="ct">
+    <button onclick="location.href='?do=add_good'">新增商品</button>
+</div>
 <table class="all">
     <tr class="tt ct">
         <td>編號</td>
