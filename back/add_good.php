@@ -45,5 +45,27 @@
     <div class="ct">
         <input type="submit" value="新增">
         <input type="reset" value="重置">
-        <input type="button" value="返回"></div>
+        <input type="button" value="返回">
+    </div>
 </form>
+<script>
+    getTypes('big', 0)
+
+    $("#big").on('change',function(){
+        getTypes('mid', $("#big").val())
+    })
+
+    function getTypes(type, big_id) {
+        $.get("./api/get_types.php", {big_id}, (types) => {
+            switch (type) {
+                case 'big':
+                    $("#big").html(types)
+                    getTypes('mid',$("#big").val())
+                    break;
+                case 'mid':
+                    $("#mid").html(types)
+                    break;
+            }
+        })
+    }
+</script>

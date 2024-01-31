@@ -144,6 +144,7 @@ $Bottom=new db('bottom');
 $Mem=new db('mem');
 $Admin=new db('admin');
 $Type=new db('type');
+$Goods=new db('goods');
 
 
 ?>
