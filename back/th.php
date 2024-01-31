@@ -10,43 +10,64 @@
     <button onclick="addType('mid')">新增</button>
 </div>
 <table class="all">
-    <tr class="tt">
-        <td>流行皮件</td>
-        <td class="ct">
-            <button>修改</button>
-            <button>刪除</button>
-        </td>
-    </tr>
-    <tr class="pp tt">
-        <td class="ct">女用皮件</td>
-        <td class="ct">
-            <button>修改</button>
-            <button>刪除</button>
-        </td>
-    </tr>
+    <?php
+    $bigs = $Type->all(['big_id' => 0]);
+    foreach ($bigs as $big) {
+    ?>
+        <tr class="tt">
+            <td><?= $big['name']; ?></td>
+            <td class="ct">
+                <button onclick="edit(this,<?=$big['id'];?>)">修改</button>
+                <button onclick="del('type',<?=$big['id'];?>)">刪除</button>
+            </td>
+        </tr>
+        <?php
+        $mids = $Type->all(['big_id' => $big['id']]);
+        foreach ($mids as $mid) {
+        ?>
+            <tr class="pp tt">
+                <td class="ct"><?= $mid['name']; ?></td>
+                <td class="ct">
+                <button onclick="edit(this,<?=$mid['id'];?>)">修改</button>
+                <button onclick="del('type',<?=$mid['id'];?>)">刪除</button>
+                </td>
+            </tr>
+    <?php
+        }
+    }
+
+    ?>
 </table>
+
 <script>
-getTypes(0)
-function getTypes(big_id) { 
-    $.get("./api/get_types.php",{big_id},(types)=>{
-        $("#bigs").html(types)
-    })
- }
+    getTypes(0)
+
+    function getTypes(big_id) {
+        $.get("./api/get_types.php", {
+            big_id
+        }, (types) => {
+            $("#bigs").html(types)
+        })
+    }
+
     function addType(type) {
-        let name,big_id;
+        let name, big_id;
         switch (type) {
             case 'big':
-                name=$("#big").val();
-                big_id=0;
-                
+                name = $("#big").val();
+                big_id = 0;
+
                 break;
-                
-                case 'mid':
-                    name=$("#mid").val();
-                    big_id=$("#bigs").val();
+
+            case 'mid':
+                name = $("#mid").val();
+                big_id = $("#bigs").val();
                 break;
         }
-        $.post("./api/save_type.php",{name,big_id},()=>{
+        $.post("./api/save_type.php", {
+            name,
+            big_id
+        }, () => {
             location.reload();
         })
     }
