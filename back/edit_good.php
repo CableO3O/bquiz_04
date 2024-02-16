@@ -7,13 +7,13 @@ $good=$Goods->find($_GET['id']);
         <tr>
             <th class="tt ct">所屬大分類</th>
             <td class="pp">
-                <select name="big" id="big"><?=$good['big'];?></select>
+                <select name="big" id="big"></select>
             </td>
         </tr>
         <tr>
             <th class="tt ct">所屬中分類</th>
             <td class="pp">
-                <select name="mid" id="mid"><?=$good['mid'];?></select>
+                <select name="mid" id="mid"></select>
             </td>
         </tr>
         <tr>
