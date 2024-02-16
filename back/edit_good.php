@@ -1,37 +1,40 @@
+<?php
+$good=$Goods->find($_GET['id']);
+?>
 <h2 class="ct">修改商品</h2>
 <form action="./api/save_goods.php" method="post" enctype="multipart/form-data">
     <table class="all">
         <tr>
             <th class="tt ct">所屬大分類</th>
             <td class="pp">
-                <select name="big" id="big"></select>
+                <select name="big" id="big"><?=$good['big'];?></select>
             </td>
         </tr>
         <tr>
             <th class="tt ct">所屬中分類</th>
             <td class="pp">
-                <select name="mid" id="mid"></select>
+                <select name="mid" id="mid"><?=$good['mid'];?></select>
             </td>
         </tr>
         <tr>
             <th class="tt ct">商品編號</th>
-            <td class="pp">完成分類後自動分配</td>
+            <td class="pp"><?=$good['no'];?></td>
         </tr>
         <tr>
             <th class="tt ct">商品名稱</th>
-            <td class="pp"><input type="text" name="name" value=""></td>
+            <td class="pp"><input type="text" name="name" value="<?=$good['name'];?>"></td>
         </tr>
         <tr>
             <th class="tt ct">商品價格</th>
-            <td class="pp"><input type="text" name="price" value=""></td>
+            <td class="pp"><input type="text" name="price" value="<?=$good['price'];?>"></td>
         </tr>
         <tr>
             <th class="tt ct">規格</th>
-            <td class="pp"><input type="text" name="spec" value=""></td>
+            <td class="pp"><input type="text" name="spec" value="<?=$good['spec'];?>"></td>
         </tr>
         <tr>
             <th class="tt ct">庫存量</th>
-            <td class="pp"><input type="text" name="stock" value=""></td>
+            <td class="pp"><input type="text" name="stock" value="<?=$good['stock'];?>"></td>
         </tr>
         <tr>
             <th class="tt ct">商品圖片</th>
@@ -39,11 +42,12 @@
         </tr>
         <tr>
             <th class="tt ct">商品介紹</th>
-            <td class="pp"><textarea name="intro" style="width: 80%;height:150px"></textarea></td>
+            <td class="pp"><textarea name="intro" style="width: 80%;height:150px"><?=$good['intro'];?></textarea></td>
         </tr>
     </table>
     <div class="ct">
-        <input type="submit" value="新增">
+        <input type="submit" value="修改">
+        <input type="hidden" value="<?=$good['id'];?>">
         <input type="reset" value="重置">
         <input type="button" value="返回">
     </div>
