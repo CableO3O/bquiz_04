@@ -44,7 +44,9 @@ $good=$Goods->find($_GET['id']);
         </a>
     </div>
     <div class="info">
-        <div>分類:</div>
+        <div>分類:
+            <?=$Type->find($good['big'])['name'];?> > <?=$Type->find($good['mid'])['name'];?>
+        </div>
         <div>編號:<?= $good['no']; ?></div>
         <div>價錢:<?= $good['price']; ?></div>
         <div>詳細說明:<?=$good['intro'];?>...</div>
