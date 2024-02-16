@@ -39,8 +39,8 @@ if (empty($_SESSION['cart'])) {
 
 </table>
 <div class="ct">
-    <img src="./icon/0411.jpg" alt="">
-    <img src="./icon/0412.jpg" alt="">
+    <img src="./icon/0411.jpg" onclick="location.href='index.php'">
+    <img src="./icon/0412.jpg" onclick="location.href='?do=checkout'">
 </div>
 <script>
     function delcart(id){
