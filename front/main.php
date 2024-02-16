@@ -88,9 +88,7 @@
                 <div class="ct tt"><?= $good['name']; ?></div>
                 <div>
                     價錢:<?= $good['price']; ?>
-                    <span>
-                        <a href="" style="float:right"><img src="./icon/0402.jpg" alt=""></a>
-                    </span>
+                    <img src="./icon/0402.jpg" style="float:right" onclick="location.href='?do=buycart&id=<?=$good['id'];?>&&qt=1'">
                 </div>
                 <div>規格:<?= $good['spec']; ?></div>
                 <div>簡介:<?= mb_substr($good['intro'], 0, 30); ?>...</div>
