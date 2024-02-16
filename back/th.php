@@ -102,13 +102,20 @@ foreach ($goods as $good) {
         <td><?=$good['stock'];?></td>
         <td><?=($good['sh']==1)?"上架":"下架";?></td>
         <td>
-            <button>修改</button>
-            <button>刪除</button>
-            <button>上架</button>
-            <button>下架</button>
+            <button onclick="location.href='?do=edit_good&&id=<?=$good['id'];?>'">修改</button>
+            <button onclick="del('goods',<?=$good['id'];?>)">刪除</button>
+            <button onclick="sh(1,<?=$good['id'];?>)">上架</button>
+            <button onclick="sh(0,<?=$good['id'];?>)">下架</button>
         </td>
     </tr>
     <?php
 }
 ?>
 </table>
+<script>
+    function sh(sh,id){
+        $.post("./api/sh.php",{sh,id},()=>{
+            location.reload();
+        })
+    }
+</script>
