@@ -80,7 +80,9 @@
         <!-- div版 -->
         <div class="item">
             <div class="img">
-                <img src="./img/<?= $good['img']; ?>" alt="" style="width: 80%;height:130px">
+                <a href="?do=detail&id=<?= $good['id']; ?>">
+                    <img src="./img/<?= $good['img']; ?>" alt="" style="width: 80%;height:130px">
+                </a>
             </div>
             <div class="info">
                 <div class="ct tt"><?= $good['name']; ?></div>
