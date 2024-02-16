@@ -46,10 +46,10 @@ $good=$Goods->find($_GET['id']);
         </tr>
     </table>
     <div class="ct">
+        <input type="hidden"  name="id" value="<?=$good['id'];?>">
         <input type="submit" value="修改">
-        <input type="hidden" value="<?=$good['id'];?>">
         <input type="reset" value="重置">
-        <input type="button" value="返回">
+        <input type="button" onclick="location.href='?do=th'" value="返回">
     </div>
 </form>
 <script>
@@ -64,10 +64,12 @@ $good=$Goods->find($_GET['id']);
             switch (type) {
                 case 'big':
                     $("#big").html(types)
+                    $("#big").val(<?=$good['big'];?>)
                     getTypes('mid',$("#big").val())
                     break;
                 case 'mid':
                     $("#mid").html(types)
+                    $("#mid").val(<?=$good['mid'];?>)
                     break;
             }
         })
