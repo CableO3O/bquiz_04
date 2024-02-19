@@ -1,6 +1,6 @@
 <h2 class="ct">填寫資料</h2>
 <?php
-$mems = $Mem->find($_SESSION['mem']);
+$mems = $Mem->find(['acc'=>$_SESSION['mem']]);
 ?>
 <form action="./api/order.php" method="post">
 
