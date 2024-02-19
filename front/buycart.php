@@ -21,19 +21,22 @@ if (empty($_SESSION['cart'])) {
         <td>刪除</td>
     </tr>
     <?php
-    foreach ($_SESSION['cart'] as $id => $qt) {
-        $goods=$Goods->find($id);
+    if (!empty($_SESSION['cart'])) {
+
+        foreach ($_SESSION['cart'] as $id => $qt) {
+            $goods = $Goods->find($id);
     ?>
-        <tr class="pp ct">
-            <td><?=$goods['no'];?></td>
-            <td><?=$goods['name'];?></td>
-            <td><?=$qt;?></td>
-            <td><?=$goods['stock'];?></td>
-            <td><?=$goods['price'];?></td>
-            <td><?=$goods['price']*$qt;?></td>
-            <td><img src="./icon/0415.jpg" onclick="delcart(<?=$id;?>)"></td>
-        </tr>
+            <tr class="pp ct">
+                <td><?= $goods['no']; ?></td>
+                <td><?= $goods['name']; ?></td>
+                <td><?= $qt; ?></td>
+                <td><?= $goods['stock']; ?></td>
+                <td><?= $goods['price']; ?></td>
+                <td><?= $goods['price'] * $qt; ?></td>
+                <td><img src="./icon/0415.jpg" onclick="delcart(<?= $id; ?>)"></td>
+            </tr>
     <?php
+        }
     }
     ?>
 
@@ -43,9 +46,11 @@ if (empty($_SESSION['cart'])) {
     <img src="./icon/0412.jpg" onclick="location.href='?do=checkout'">
 </div>
 <script>
-    function delcart(id){
-        $.post("./api/del_cart.php",{id},()=>{
-            location.href="?do=buycart";
+    function delcart(id) {
+        $.post("./api/del_cart.php", {
+            id
+        }, () => {
+            location.href = "?do=buycart";
         })
     }
 </script>

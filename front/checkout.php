@@ -14,7 +14,7 @@ $mems = $Mem->find($_SESSION['mem']);
         <tr>
             <td class="tt ct">姓名</td>
             <td class="pp">
-                <input type="text" name="" value="<?= $mems['name']; ?>">
+                <input type="text" name="name" value="<?= $mems['name']; ?>">
             </td>
         </tr>
         <tr>
@@ -57,6 +57,7 @@ $mems = $Mem->find($_SESSION['mem']);
 </table>
     <div class="all ct tt">總價:<?=$sum;?>元</div>
     <div class="ct">
+        <input type="hidden" name="total" value="<?=$sum;?>">
         <input type="submit" value="確定送出">
         <input type="button" value="返回修改訂單" onclick="location.href='?do=buycart'">
     </div>
