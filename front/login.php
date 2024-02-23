@@ -19,19 +19,23 @@
         // $b=rand(10,99);
         // $_SESSION['ans']=$a+$b;
         // echo $a . "+" . $b . "=";
-        
+
         // 圖片驗證
-       $_SESSION['ans']=code(5);
-       $img=captcha($_SESSION['ans']);
+    //    $_SESSION['ans']=code(5);
+    //    $img=captcha($_SESSION['ans']);
         ?>
-        <img src="<?=$img;?>" alt="">
-        <input type="text" name="ans" id="ans"></td>
+        <input type="text" name="ans" id="ans">
+        <br>
+        <img src="" alt="" id="captcha">
+        <button type="button" onclick="captcha(5)">重新產生驗證碼</button>
+    </td>
     </tr>
 </table>
 <div class="ct">
     <button onclick="login('mem')">確認</button>
 </div>
 <script>
+    captcha(5);
     function login(table) { 
         $.get("./api/chk_ans.php",{ans:$("#ans").val()},(chk)=>{
             if (parseInt(chk)==0) {
@@ -47,4 +51,10 @@
             }
         }
      )}
+     function captcha(){
+        $.get("./api/captcha.php",(img)=>{
+            $("#captcha").attr("src",img);
+        })
+       
+     }
 </script>
