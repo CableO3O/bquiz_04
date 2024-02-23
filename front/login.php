@@ -14,11 +14,17 @@
         <td class="tt">驗證碼</td>
         <td class="pp">
         <?php
-        $a=rand(10,99);
-        $b=rand(10,99);
-        $_SESSION['ans']=$a+$b;
-        echo $a . "+" . $b . "=";
+        // 數字驗證
+        // $a=rand(10,99);
+        // $b=rand(10,99);
+        // $_SESSION['ans']=$a+$b;
+        // echo $a . "+" . $b . "=";
+        
+        // 圖片驗證
+       $_SESSION['ans']=code(5);
+       $img=captcha($_SESSION['ans']);
         ?>
+        <img src="<?=$img;?>" alt="">
         <input type="text" name="ans" id="ans"></td>
     </tr>
 </table>
